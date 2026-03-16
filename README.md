@@ -8,7 +8,7 @@ Program to compute the optimal phases of green light intervals at a traffic inte
 
 ## How it Works
 Each intersection has two phases:
-- **Phase0** - North-South road has green
+- **Phase 0** - North-South road has green
 - **Phase 1** - East-West road has green
 
 Webster's formula calculates the optimal cycle length and splits green time **proportionally to traffic demand.**
