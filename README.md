@@ -1,4 +1,4 @@
-Program to compute the optimal phases of green light intervals at a traffic intersection. **Using Webster's formula** to calculate the optimal amount of effective green time, taking into account the flow ratios of every lane. Seeing how Webster's formula provides a more effective way of allocating green time than, say, a uniform distribution (30s for every direction)
+Program to compute the optimal phases of green light intervals at a traffic intersection. **Using Webster's formula** to calculate the optimal amount of effective green time, taking into account the flow ratios of every lane. Seeing how Webster's formula provides a more effective way of allocating green time than, say, a uniform distribution (30s for every direction).
 
 ## Features
 - **Webster's formula** - stimulates green phase durations based on real traffic demand
@@ -11,7 +11,7 @@ Each intersection has two phases:
 - **Phase0** - North-South road has green
 - **Phase 1** - East-West road has green
 
-Webster's formula calculates the optimal cycle length and splits green time **proportionally to traffic demand**
+Webster's formula calculates the optimal cycle length and splits green time **proportionally to traffic demand.**
 
 ```
 C = (1.5L + 5) / (1- Y)
