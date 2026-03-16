@@ -41,7 +41,6 @@ python main.py
 1. **Click any intersection** on the grid to select it
 2. **Edit arrival rates** (cars/second per direction) in the right panel
 3. Use **presets** - Light / Medium / Heavy / Asymmetric - for quick setup
-4. Hit **"Apply to ALL"** to apply the same rates to every intersection
 5. Hit **"Live Preview"** to wach the animated simulation
 6. Hit **"Run Comparison"** to stimulate 1 hour and see the results
 
