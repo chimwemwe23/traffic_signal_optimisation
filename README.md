@@ -28,6 +28,7 @@ Where 'C' is the cycle length, 'L' is total lost time, 'Y = y1 + y2' is the sum 
 ## Installation and Running
 # Clone the repository
 git clone https://github.com/chimwemwe23/traffic_signal_optimisation.git
+
 cd traffic_signal_optimisation
 
 # Install the dependency
