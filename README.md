@@ -50,7 +50,7 @@ python main.py
 ## Project Structure
 
 ```
-traffic-signal-optimizer/
+traffic-signal-optimizer
 ├── main.py       # Entry point and main app window
 ├── model.py      # Intersection, Network, Simulator, Webster formula
 └── gui.py        # NetworkCanvas, InputPanel, ResultsWindow
