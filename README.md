@@ -1,6 +1,6 @@
 Program to compute the optimal phases of green light intervals at a traffic intersection. **Using Webster's formula** to calculate the optimal amount of effective green time, taking into account the flow ratios of every lane. Seeing how Webster's formula provides a more effective way of allocating green time than, say, a uniform distribution (30s for every direction)
 
-##Features
+## Features
 - **Webster's formula** - stimulates green phase durations based on real traffic demand
 - **Discrete-time simulation** - simulates 1 hour of traffic second-bysecond with Poisson-distributed random arrivals
 - **Side-by-side comparison** - watch the traffic lights change in real time
@@ -20,12 +20,12 @@ gi = (C - L) * (yi / Y)
 
 Where 'C' is the cycle length, 'L' is total lost time, 'Y = y1 + y2' is the sum of flow ratios, and 'gi' is the green time for each phase.
 
-##Requirements
+## Requirements
 - Python 3.9+
 - tkinter
 - matplotlib
 
-##Installation and Running
+## Installation and Running
 # Clone the repository
 git clone https://github.com/chimwemwe23/traffic_signal_optimisation.git
 cd traffic_signal_optimisation
