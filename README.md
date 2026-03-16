@@ -6,7 +6,7 @@ Program to compute the optimal phases of green light intervals at a traffic inte
 - **Side-by-side comparison** - watch the traffic lights change in real time
 - **Results charts** - cumulative throughput and queue length over time (via matplotlib)
 
-##How it Works
+## How it Works
 Each intersection has two phases:
 - **Phase0** - North-South road has green
 - **Phase 1** - East-West road has green
