@@ -58,7 +58,7 @@ traffic-signal-optimizer
 
 | File | Responsibility |
 |---|---|
-| `model.py` | All simulation logic — no GUI code. Contains `Intersection` (one crossroads), `Network` (the grid), `Simulator` (runs the clock), and Webster's formula. |
+| `model.py` | All simulation logic. Contains `Intersection` (one crossroads), `Network` (the grid), `Simulator` (runs the clock), and Webster's formula. |
 | `gui.py` | All visual code. `NetworkCanvas` draws the animated road grid. `InputPanel` handles editing. `ResultsWindow` shows comparison charts. |
 | `main.py` | Wires model and GUI together. Handles button events, runs simulations on background threads so the GUI stays responsive. |
 
