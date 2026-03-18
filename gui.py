@@ -4,10 +4,10 @@ gui.py
 All GUI code.
 
 Interaction model:
-  LEFT-CLICK  empty grid node  → place intersection
-  LEFT-CLICK  existing intersection → remove it (if no roads attached)
-  LEFT-CLICK  intersection (road mode) → start/complete drawing a road
-  RIGHT-CLICK intersection → select for editing in panel
+  LefT-Click  empty grid node  → place intersection
+  Left-Click existing intersection → remove it (if no roads attached)
+  Left-Click  intersection (road mode) → start/complete drawing a road
+  RighT-Click intersection → select for editing in panel
 
 Modes (toolbar toggle):
   PLACE mode  — left-click places/removes intersections
@@ -18,14 +18,14 @@ import tkinter as tk
 from tkinter import ttk, simpledialog, messagebox
 
 try:
-    import matplotlib; matplotlib.use("TkAgg")
-    from matplotlib.figure import Figure
-    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+    import matplotlib; matplotlib.use("TkAgg") # pyright: ignore[reportMissingModuleSource]
+    from matplotlib.figure import Figure # pyright: ignore[reportMissingModuleSource]
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg # pyright: ignore[reportMissingModuleSource]
     HAS_MPL = True
 except ImportError:
     HAS_MPL = False
 
-from model import (Intersection, Network, Road, improvement,
+from model import (Intersection, Network, Road, improvement, # type: ignore
                    DEFAULT_ROAD_LENGTH, DEFAULT_SPEED_MS, DEFAULT_DEMAND_CPH)
 
 BG, BG2, BG3 = "#1a1a2e", "#16213e", "#0f3460"
@@ -33,10 +33,7 @@ GREEN, RED, YELLOW = "#00e676", "#ff1744", "#ffea00"
 BLUE, GOLD, FG, FG_DIM = "#29b6f6", "#ffd740", "#e0e0e0", "#aaaaaa"
 ORANGE, PURPLE = "#ff9800", "#ce93d8"
 
-
-# ─────────────────────────────────────────────
-#  ROAD DIALOG  — pops up when user draws a road
-# ─────────────────────────────────────────────
+#Road Dialog 
 
 class RoadDialog(tk.Toplevel):
     """
@@ -120,25 +117,11 @@ class RoadDialog(tk.Toplevel):
                                  parent=self)
 
 
-# ─────────────────────────────────────────────
-#  NETWORK CANVAS
-# ─────────────────────────────────────────────
+#Network Canvas
 
 class NetworkCanvas(tk.Canvas):
     """
     Draws the grid. Two interaction modes controlled by the toolbar.
-
-    PLACE mode (default):
-      Left-click empty dot  → place intersection
-      Left-click intersection → remove it (only if no user roads attached)
-
-    ROAD mode:
-      Left-click intersection A → highlights it (first endpoint)
-      Left-click intersection B → opens RoadDialog, adds road on confirm
-      Left-click same intersection twice → cancels
-
-    Right-click (either mode):
-      Select intersection for editing in the input panel
     """
 
     R_INTER = 20
@@ -159,7 +142,7 @@ class NetworkCanvas(tk.Canvas):
         self.bind("<Button-1>",  self._left_click)
         self.bind("<Button-3>",  self._right_click)
 
-    # ── Layout ───────────────────────────────
+#Layout
 
     def _cell(self):
         w,h = self.winfo_width(), self.winfo_height()
@@ -188,7 +171,7 @@ class NetworkCanvas(tk.Canvas):
                 best_d, best = d, (r,c)
         return best if best and best_d < self.R_INTER*2.5 else None
 
-    # ── Events ───────────────────────────────
+  #Events
 
     def _left_click(self, event):
         if self.mode == self.MODE_PLACE:
@@ -267,7 +250,7 @@ class NetworkCanvas(tk.Canvas):
             self.draw()
             if self.on_select: self.on_select(*inter)
 
-    # ── Drawing ───────────────────────────────
+#Drawing
 
     def draw(self):
         self.delete("all")
@@ -414,9 +397,7 @@ class NetworkCanvas(tk.Canvas):
                          font=("Arial",8,"bold"), anchor="w")
 
 
-# ─────────────────────────────────────────────
-#  INPUT PANEL
-# ─────────────────────────────────────────────
+#Input Panel
 
 class InputPanel(tk.Frame):
     """
@@ -587,9 +568,7 @@ class InputPanel(tk.Frame):
         self._preview.config(state="disabled")
 
 
-# ─────────────────────────────────────────────
-#  RESULTS WINDOW
-# ─────────────────────────────────────────────
+#Results Window
 
 class ResultsWindow(tk.Toplevel):
     def __init__(self,parent,uniform,webster):
@@ -677,4 +656,3 @@ class ResultsWindow(tk.Toplevel):
         box=tk.Text(parent,bg="#0a1628",fg=GREEN,font=("Courier",10),wrap="word",relief="flat")
         box.pack(fill="both",expand=True,padx=10,pady=10)
         box.insert("1.0",txt); box.config(state="disabled")
-
