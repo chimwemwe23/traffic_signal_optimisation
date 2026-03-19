@@ -127,13 +127,13 @@ class Intersection:
         return y1, y2
 
     def compute_webster(self):
-        L      = 6.0
-        y1, y2 = self.flow_ratios()
-        Y      = min(y1 + y2, 0.95)
-        C      = max(20.0, min((1.5*L+5)/(1-Y), 120.0))
-        eff    = C - L
-        g1, g2 = (eff/2, eff/2) if Y == 0 else (eff*y1/Y, eff*y2/Y)
-        return C, max(5.0, min(g1, C-10)), max(5.0, min(g2, C-10))
+       L = 6.0
+       y1, y2 = self.flow_ratios()
+       Y = min(y1+y2, 0.95)
+       C = max(40.0, min((1.5*L+5)/(1-Y), 120.0))
+       eff = C - L
+       g1, g2 = (eff/2, eff/2) if Y==0 else (eff*y1/Y, eff*y2/Y)
+       return C, max(20.0, min(g1, 120.0)), max(20.0, min(g2, 120.0))
 
     def apply_webster(self):
         _, g1, g2 = self.compute_webster()
