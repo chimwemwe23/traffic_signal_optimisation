@@ -224,14 +224,6 @@ class Network:
         else:
             self._add(r, c)
 
-   def add_intersection(self, r, c):
-    if (r, c) not in self.grid:
-        self._add(r, c)
-
-   def remove_intersection(self, r, c):
-    if (r, c) in self.grid:
-        self._remove(r, c)
-
     def _add(self, r, c):
         self.grid[(r, c)] = Intersection(r, c)
         self._rebuild_roads(r, c)
@@ -239,6 +231,14 @@ class Network:
         for nr, nc in self._adj(r, c):
             if (nr, nc) in self.grid:
                 self._rebuild_roads(nr, nc)
+
+   def add_intersection(self, r, c):
+      if (r, c) not in self.grid:
+        self._add(r, c)
+
+   def remove_intersection(self, r, c):
+      if (r, c) in self.grid:
+        self._remove(r, c)
 
     def _remove(self, r, c):
         del self.grid[(r, c)]
