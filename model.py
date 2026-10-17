@@ -84,9 +84,8 @@ class Road:
         return arrived
 
 
-# ---------------------------------------------------------------------------
 # Intersection
-# ---------------------------------------------------------------------------
+
 class Intersection:
     """
     One signalised crossroads.
@@ -193,9 +192,7 @@ class Intersection:
         return (self.cars_passed / sim_sec) * 3600 if sim_sec else 0
 
 
-# ---------------------------------------------------------------------------
 # Network
-# ---------------------------------------------------------------------------
 class Network:
     """Sparse grid of intersections + manually drawn roads."""
 
@@ -209,7 +206,7 @@ class Network:
         self.default_speed_ms = DEFAULT_SPEED_MS
         self.default_demand_cph = DEFAULT_DEMAND_CPH
 
-    # ---- placing / removing intersections -------------------------------
+    # placing / removing intersections 
     def add_intersection(self, r, c):
         if (r, c) not in self.grid:
             self.grid[(r, c)] = Intersection(r, c)
